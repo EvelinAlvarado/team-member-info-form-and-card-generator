@@ -1,11 +1,11 @@
 import "./CampoTexto.css";
 
 export function CampoTexto(props) {
-  const placeholderModificado = `${props.placeholder}...`;
+  const placeholderModifier = `${props.placeholder}...`;
   return (
     <div className="campo-texto">
-      <label>{props.titulo}</label>
-      <input placeholder={placeholderModificado} />
+      <label>{props.title}</label>
+      <input placeholder={placeholderModifier} required={props.required} />
     </div>
   );
 }

@@ -1,23 +1,23 @@
 import "./ListaOpciones.css";
 
 const ListaOpciones = () => {
-  //Método map
-  const equipos = [
-    "Progamación",
+  // Map method
+  const teams = [
+    "Programming",
     "Front End",
     "Data Science",
     "Devops",
-    "UX y Diseño",
-    "Móvil",
-    "Innovación y Gestión",
+    "UX and Design",
+    "Mobile",
+    "Innovation and Management",
   ];
   return (
     <div className="lista-opciones">
-      <label>Equipos</label>
+      <label>Teams</label>
       <select>
-        {/* Cuando se utiliza map() con react en un array, debe tener un identificador único */}
-        {equipos.map((equipo, index) => (
-          <option key={index}>{equipo}</option>
+        {/* When using map() with React on an array, it must have a unique identifier */}
+        {teams.map((team, index) => (
+          <option key={index}>{team}</option>
         ))}
       </select>
     </div>

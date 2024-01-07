@@ -4,22 +4,22 @@ import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import { Boton } from "../Boton/Boton";
 
 export function Formulario() {
-  const manejarEnvio = (e) => {
-    // evitar el comportamiento por defecto
+  const handleSubmission = (e) => {
+    // Prevent the default form behavior
     e.preventDefault();
-    // console.log("Manejar el evento :", e);
+    // console.log("Handling the event:", e);
   };
 
   return (
     <section className="formulario">
-      <form onSubmit={manejarEnvio}>
-        <h2>Rellena el formulario para crear el colaborador.</h2>
-        <CampoTexto titulo="Nombre" placeholder="Ingresar nombre" />
-        <CampoTexto titulo="Puesto" placeholder="Ingresar puesto" />
-        <CampoTexto titulo="Foto" placeholder="Ingresar enlace de foto" />
+      <form onSubmit={handleSubmission}>
+        <h2>Fill out the form to create a new collaborator.</h2>
+        <CampoTexto title="Name" placeholder="Enter name" required={true} />
+        <CampoTexto title="Position" placeholder="Enter position" required />
+        <CampoTexto title="Photo" placeholder="Enter photo link" required />
         <ListaOpciones />
-        {/* Se utiliza otra forma de props: props.children */}
-        <Boton>Crear</Boton>
+        {/* Utilizing another form of props: props.children */}
+        <Boton>Create</Boton>
       </form>
     </section>
   );
