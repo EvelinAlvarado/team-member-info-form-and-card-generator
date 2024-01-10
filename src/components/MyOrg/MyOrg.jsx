@@ -4,11 +4,7 @@ export function MyOrg(props) {
   return (
     <section className="orgSection">
       <h3 className="title">My Organization</h3>
-      <img
-        src="../public/img/add.png"
-        alt="Add"
-        onClick={props.toggleFormVisibility}
-      />
+      <img src="/img/add.png" alt="Add" onClick={props.toggleFormVisibility} />
     </section>
   );
 }
