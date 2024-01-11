@@ -4,7 +4,7 @@ import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import { Boton } from "../Boton/Boton";
 import { useState } from "react";
 
-export function Formulario() {
+export function Formulario(props) {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [photoLink, setPhotoLink] = useState("");
@@ -48,7 +48,7 @@ export function Formulario() {
           value={photoLink}
           setValue={setPhotoLink}
         />
-        <ListaOpciones value={team} setValue={setTeam} />
+        <ListaOpciones value={team} setValue={setTeam} teams={props.teams} />
         {/* Utilizing another form of props: props.children */}
         <Boton>Create</Boton>
       </form>
