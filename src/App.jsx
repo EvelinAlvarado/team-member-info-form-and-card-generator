@@ -8,9 +8,19 @@ import "./App.css";
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
 
+  // State to store the list of collaborators
+  const [collaboratorList, setCollaboratorList] = useState([]);
+
   const toggleFormVisibility = () => {
     console.log("Show/hide");
     setIsFormVisible(!isFormVisible);
+  };
+
+  // Register collaborator
+  const registerCollaborator = (newCollaborator) => {
+    console.log("New collaborator: ", newCollaborator);
+    // Spread Operator
+    setCollaboratorList([...collaboratorList, newCollaborator]);
   };
 
   // Teams
@@ -56,7 +66,12 @@ function App() {
     <div className="App">
       <Header />
       {/* {isFormVisible ? <Formulario /> : null} */}
-      {isFormVisible && <Formulario teams={teams.map((team) => team.title)} />}
+      {isFormVisible && (
+        <Formulario
+          teams={teams.map((team) => team.title)}
+          registerCollaborator={registerCollaborator}
+        />
+      )}
       <MyOrg toggleFormVisibility={toggleFormVisibility} />
       {teams.map((team) => {
         return <Team dataTeam={team} key={team.title} />;

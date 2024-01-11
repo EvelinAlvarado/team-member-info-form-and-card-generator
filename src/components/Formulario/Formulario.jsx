@@ -4,7 +4,7 @@ import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import { Boton } from "../Boton/Boton";
 import { useState } from "react";
 
-export function Formulario(props) {
+export function Formulario({ registerCollaborator, teams }) {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [photoLink, setPhotoLink] = useState("");
@@ -20,7 +20,7 @@ export function Formulario(props) {
       photoLink: photoLink,
       team: team,
     };
-    console.log(collaboratorData);
+    registerCollaborator(collaboratorData);
   };
 
   return (
@@ -48,7 +48,7 @@ export function Formulario(props) {
           value={photoLink}
           setValue={setPhotoLink}
         />
-        <ListaOpciones value={team} setValue={setTeam} teams={props.teams} />
+        <ListaOpciones value={team} setValue={setTeam} teams={teams} />
         {/* Utilizing another form of props: props.children */}
         <Boton>Create</Boton>
       </form>
