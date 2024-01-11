@@ -4,17 +4,25 @@ import "./Team.css";
 export function Team(props) {
   // Destructuring
   const { primaryColor, secondaryColor, title } = props.dataTeam;
+  const { collaboratorList } = props;
 
   const secondaryColorStyle = { backgroundColor: secondaryColor };
   const primaryColorStyle = { borderColor: primaryColor };
 
+  // Render the team section only if there are collaborators in the list
   return (
-    <section className="team" style={secondaryColorStyle}>
-      <h3 style={primaryColorStyle}>{title}</h3>
-      <div className="collaborators">
-        <Collaborator />
-        <Collaborator />
-      </div>
-    </section>
+    <>
+      {collaboratorList.length > 0 && (
+        <section className="team" style={secondaryColorStyle}>
+          <h3 style={primaryColorStyle}>{title}</h3>
+          <div className="collaborators">
+            {collaboratorList.map((collaboratorItem) => (
+              <Collaborator collaboratorInfo={collaboratorItem} />
+            ))}
+          </div>
+        </section>
+      )}
+    </>
   );
 }
+// ! ToDo: key for collaboratorList: collaboratorList.map((collaboratorItem, index) => (<Collaborator collaboratorInfo={collaboratorItem} index={"id?"} />

@@ -14,12 +14,15 @@ export function Formulario({ registerCollaborator, teams }) {
     // Prevent the default form behavior
     e.preventDefault();
     // console.log("Handling the event:", e);
+
+    // Construct collaborator data from form fields
     let collaboratorData = {
       name: name,
       position: position,
       photoLink: photoLink,
       team: team,
     };
+    // Register the new collaborator using the provided function from props
     registerCollaborator(collaboratorData);
   };
 

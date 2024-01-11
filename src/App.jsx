@@ -4,6 +4,7 @@ import { MyOrg } from "./components/MyOrg/MyOrg.jsx";
 import { useState } from "react";
 import { Team } from "./components/Team/Team.jsx";
 import "./App.css";
+import { Collaborator } from "./components/Collaborator/Collaborator.jsx";
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -73,8 +74,18 @@ function App() {
         />
       )}
       <MyOrg toggleFormVisibility={toggleFormVisibility} />
+
+      {/*Render the 'Team' component for each team with filtered collaboratorList */}
       {teams.map((team) => {
-        return <Team dataTeam={team} key={team.title} />;
+        return (
+          <Team
+            dataTeam={team}
+            key={team.title}
+            collaboratorList={collaboratorList.filter(
+              (collaborator) => collaborator.team === team.title
+            )}
+          />
+        );
       })}
     </div>
   );

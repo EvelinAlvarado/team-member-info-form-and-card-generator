@@ -1,14 +1,17 @@
 import "./Collaborator.css";
 
-export function Collaborator() {
+export function Collaborator(props) {
+  // Destructuring
+  const { name, position, photoLink, team } = props.collaboratorInfo;
+
   return (
     <div className="collaborator">
       <div className="collaborator-header">
-        <img src="https://github.com/evelinalvarado.png" alt="Evelin" />
+        <img src={photoLink} alt={name} />
       </div>
       <div className="collaborator-info">
-        <h4>Evelin Alvarado</h4>
-        <h5>Web Developer</h5>
+        <h4>{name}</h4>
+        <h5>{position}</h5>
       </div>
     </div>
   );
