@@ -4,7 +4,7 @@ import { MyOrg } from "./components/MyOrg/MyOrg.jsx";
 import { useState } from "react";
 import { Team } from "./components/Team/Team.jsx";
 import "./App.css";
-import { Collaborator } from "./components/Collaborator/Collaborator.jsx";
+import { Footer } from "./components/Footer/Footer.jsx";
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -87,6 +87,7 @@ function App() {
           />
         );
       })}
+      <Footer />
     </div>
   );
 }
