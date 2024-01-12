@@ -17,7 +17,10 @@ export function Team(props) {
           <h3 style={primaryColorStyle}>{title}</h3>
           <div className="collaborators">
             {collaboratorList.map((collaboratorItem) => (
-              <Collaborator collaboratorInfo={collaboratorItem} />
+              <Collaborator
+                collaboratorInfo={collaboratorItem}
+                primaryColor={primaryColor}
+              />
             ))}
           </div>
         </section>
