@@ -20,6 +20,7 @@ export function Team(props) {
               <Collaborator
                 collaboratorInfo={collaboratorItem}
                 primaryColor={primaryColor}
+                key={collaboratorItem.id}
               />
             ))}
           </div>

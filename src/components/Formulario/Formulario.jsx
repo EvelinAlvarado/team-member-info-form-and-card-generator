@@ -3,6 +3,7 @@ import "./Formulario.css";
 import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import { Boton } from "../Boton/Boton";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export function Formulario({ registerCollaborator, teams }) {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ export function Formulario({ registerCollaborator, teams }) {
       position: position,
       photoLink: photoLink,
       team: team,
+      id: uuidv4(),
     };
     // Register the new collaborator using the provided function from props
     registerCollaborator(collaboratorData);
