@@ -1,6 +1,7 @@
 .collaborator {
   width: 280px;
   margin-bottom: 24px;
+  position: relative;
 }
 
 .collaborator-header {
@@ -39,4 +40,10 @@
   color: #212121;
   font-weight: 400;
   margin: 0;
+}
+
+.delete-icon {
+  position: absolute;
+  right: -15px;
+  top: -15px;
 }
