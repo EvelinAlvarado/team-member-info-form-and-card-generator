@@ -137,6 +137,12 @@ function App() {
     setTeams(updatedTeams);
   };
 
+  // Create new Team
+  const createNewTeam = (newTeam) => {
+    console.log(newTeam);
+    setTeams([...teams, newTeam]);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -145,6 +151,7 @@ function App() {
         <Formulario
           teams={teams.map((team) => team.title)}
           registerCollaborator={registerCollaborator}
+          createNewTeam={createNewTeam}
         />
       )}
 
@@ -155,7 +162,7 @@ function App() {
         return (
           <Team
             dataTeam={team}
-            key={team.title}
+            key={team.id}
             collaboratorList={collaboratorList.filter(
               (collaborator) => collaborator.team === team.title
             )}
