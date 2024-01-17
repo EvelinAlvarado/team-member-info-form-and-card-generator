@@ -4,9 +4,10 @@ import hexToRgba from "hex-to-rgba";
 
 export function Team(props) {
   // Destructuring
-  const { primaryColor, secondaryColor, title } = props.dataTeam;
+  const { primaryColor, secondaryColor, title, id } = props.dataTeam;
   const { collaboratorList, deleteCollaborator, updateColor } = props;
 
+  // Set the background color style with an adjusted opacity based on the primary color using hexToRgba.
   const secondaryColorStyle = {
     backgroundColor: hexToRgba(primaryColor, 0.35),
   };
@@ -22,7 +23,7 @@ export function Team(props) {
             className="input-color"
             value={primaryColor}
             onChange={(e) => {
-              updateColor(e.target.value, title);
+              updateColor(e.target.value, id);
             }}
           />
           <h3 style={primaryColorStyle}>{title}</h3>

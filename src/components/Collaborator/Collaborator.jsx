@@ -3,12 +3,15 @@ import { AiFillCloseCircle } from "react-icons/ai";
 
 export function Collaborator(props) {
   // Destructuring
-  const { name, position, photoLink, team } = props.collaboratorInfo;
+  const { name, position, photoLink, team, id } = props.collaboratorInfo;
   const { primaryColor, deleteCollaborator } = props;
 
   return (
     <div className="collaborator">
-      <AiFillCloseCircle className="delete-icon" onClick={deleteCollaborator} />
+      <AiFillCloseCircle
+        className="delete-icon"
+        onClick={() => deleteCollaborator(id)}
+      />
       <div
         className="collaborator-header"
         style={{ backgroundColor: primaryColor }}

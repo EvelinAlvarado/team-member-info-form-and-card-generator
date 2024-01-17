@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Team } from "./components/Team/Team.jsx";
 import "./App.css";
 import { Footer } from "./components/Footer/Footer.jsx";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -16,42 +17,42 @@ function App() {
       position: "Developer",
       photoLink: "https://unavatar.io/karina",
       team: "Programming",
-      id: 536363,
+      id: uuidv4(),
     },
     {
       name: "Ann Smith",
       position: "Designer",
       photoLink: "https://unavatar.io/ann",
       team: "Programming",
-      id: 893289,
+      id: uuidv4(),
     },
     {
       name: "Robert Johnson",
       position: "Data Scientist",
       photoLink: "https://unavatar.io/robert",
       team: "Data Science",
-      id: 739236,
+      id: uuidv4(),
     },
     {
       name: "Alice Williams",
       position: "Front End Developer",
       photoLink: "https://unavatar.io/alice",
       team: "Front End",
-      id: 634383,
+      id: uuidv4(),
     },
     {
       name: "David Brown",
       position: "UX Designer",
       photoLink: "https://unavatar.io/david",
       team: "UX and Design",
-      id: 183657,
+      id: uuidv4(),
     },
     {
       name: "Christian Davis",
       position: "Mobile Developer",
       photoLink: "https://unavatar.io/chris",
       team: "Mobile",
-      id: 565735,
+      id: uuidv4(),
     },
   ]);
 
@@ -61,36 +62,43 @@ function App() {
       title: "Programming",
       primaryColor: "#57c278",
       secondaryColor: "#d9f7e9",
+      id: uuidv4(),
     },
     {
       title: "Front End",
       primaryColor: "#82cffa",
       secondaryColor: "#e8f8ff",
+      id: uuidv4(),
     },
     {
       title: "Data Science",
       primaryColor: "#a6d157",
       secondaryColor: "#f0f8e2",
+      id: uuidv4(),
     },
     {
       title: "Devops",
       primaryColor: "#e06b69",
       secondaryColor: "#fde7e8",
+      id: uuidv4(),
     },
     {
       title: "UX and Design",
       primaryColor: "#db6ebf",
       secondaryColor: "#fae9f5",
+      id: uuidv4(),
     },
     {
       title: "Mobile",
       primaryColor: "#ffba05",
       secondaryColor: "#fff5d9",
+      id: uuidv4(),
     },
     {
       title: "Innovation and Management",
       primaryColor: "#ff8a29",
       secondaryColor: "#ffeedf",
+      id: uuidv4(),
     },
   ]);
 
@@ -107,15 +115,20 @@ function App() {
   };
 
   //Delete collaborator
-  const deleteCollaborator = () => {
-    console.log("Delete collaborator");
+  const deleteCollaborator = (id) => {
+    console.log("Delete collaborator", id);
+    const updatedCollaboratorList = collaboratorList.filter(
+      (collaborator) => collaborator.id !== id
+    );
+    console.log(updatedCollaboratorList);
+    setCollaboratorList(updatedCollaboratorList);
   };
 
   // Update secondary color for the specified team
-  const updateColor = (newColor, title) => {
-    console.log("Updating color for the team:", newColor, title);
+  const updateColor = (newColor, id) => {
+    console.log("Updating color for the team:", newColor, id);
     const updatedTeams = teams.map((team) => {
-      if (team.title === title) {
+      if (team.id === id) {
         team.primaryColor = newColor;
       }
       return team;
