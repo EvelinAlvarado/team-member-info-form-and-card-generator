@@ -1,4 +1,4 @@
-import { CampoTexto } from "../CampoTexto/CampoTexto";
+import { InputField } from "../InputField/InputField";
 import "./Formulario.css";
 import ListaOpciones from "../ListaOpciones/ListaOpciones";
 import { Boton } from "../Boton/Boton";
@@ -41,21 +41,21 @@ export function Formulario({ registerCollaborator, teams, createNewTeam }) {
     <section className="formulario">
       <form onSubmit={handleSubmissionNewCollaborator}>
         <h2>Fill out the form to create a new collaborator.</h2>
-        <CampoTexto
+        <InputField
           title="Name"
           placeholder="Enter name"
           required={true}
           value={name}
           setValue={setName}
         />
-        <CampoTexto
+        <InputField
           title="Position"
           placeholder="Enter position"
           required
           value={position}
           setValue={setPosition}
         />
-        <CampoTexto
+        <InputField
           title="Photo"
           placeholder="Enter photo link"
           required
@@ -68,19 +68,20 @@ export function Formulario({ registerCollaborator, teams, createNewTeam }) {
       </form>
       <form onSubmit={handleSubmissionNewTeam}>
         <h2>Fill out the form to create a new Team.</h2>
-        <CampoTexto
+        <InputField
           title="Title"
           placeholder="Enter title"
           required={true}
           value={titleTeam}
           setValue={setTitleTeam}
         />
-        <CampoTexto
+        <InputField
           title="Color"
           placeholder="Enter color in hexadecimal"
           required
           value={colorTeam}
           setValue={setColorTeam}
+          type="color"
         />
         <Boton>Register Team</Boton>
       </form>

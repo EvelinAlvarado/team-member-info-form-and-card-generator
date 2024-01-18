@@ -5,7 +5,7 @@ import hexToRgba from "hex-to-rgba";
 export function Team(props) {
   // Destructuring
   const { primaryColor, secondaryColor, title, id } = props.dataTeam;
-  const { collaboratorList, deleteCollaborator, updateColor } = props;
+  const { collaboratorList, deleteCollaborator, updateColor, toggleFavoriteStatus } = props;
 
   // Set the background color style with an adjusted opacity based on the primary color using hexToRgba.
   const secondaryColorStyle = {
@@ -34,6 +34,7 @@ export function Team(props) {
                 primaryColor={primaryColor}
                 key={collaboratorItem.id}
                 deleteCollaborator={deleteCollaborator}
+                toggleFavoriteStatus={toggleFavoriteStatus}
               />
             ))}
           </div>

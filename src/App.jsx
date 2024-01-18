@@ -18,6 +18,7 @@ function App() {
       photoLink: "https://unavatar.io/karina",
       team: "Programming",
       id: uuidv4(),
+      favorite: false,
     },
     {
       name: "Ann Smith",
@@ -25,6 +26,7 @@ function App() {
       photoLink: "https://unavatar.io/ann",
       team: "Programming",
       id: uuidv4(),
+      favorite: false,
     },
     {
       name: "Robert Johnson",
@@ -32,6 +34,7 @@ function App() {
       photoLink: "https://unavatar.io/robert",
       team: "Data Science",
       id: uuidv4(),
+      favorite: false,
     },
     {
       name: "Alice Williams",
@@ -39,6 +42,7 @@ function App() {
       photoLink: "https://unavatar.io/alice",
       team: "Front End",
       id: uuidv4(),
+      favorite: false,
     },
     {
       name: "David Brown",
@@ -46,6 +50,7 @@ function App() {
       photoLink: "https://unavatar.io/david",
       team: "UX and Design",
       id: uuidv4(),
+      favorite: false,
     },
     {
       name: "Christian Davis",
@@ -53,6 +58,7 @@ function App() {
       photoLink: "https://unavatar.io/chris",
       team: "Mobile",
       id: uuidv4(),
+      favorite: false,
     },
   ]);
 
@@ -143,6 +149,22 @@ function App() {
     setTeams([...teams, newTeam]);
   };
 
+  // Toggle favorite status for a collaborator
+  const toggleFavoriteStatus  = (id) => {
+    console.log("Toggling favorite status for collaborator:", id);
+
+    // Update the favorite status in the collaboratorList
+    const updatedCollaborators = collaboratorList.map((collaborator) => {
+      if (collaborator.id === id) {
+        collaborator.favorite = !collaborator.favorite;
+      }
+      return collaborator;
+    });
+
+    // Update the state with the modified collaboratorList
+    setCollaboratorList(updatedCollaborators);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -168,6 +190,7 @@ function App() {
             )}
             deleteCollaborator={deleteCollaborator}
             updateColor={updateColor}
+            toggleFavoriteStatus={toggleFavoriteStatus}
           />
         );
       })}
